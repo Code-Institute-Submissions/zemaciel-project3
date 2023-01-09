@@ -1,61 +1,50 @@
-
-airport_list = ['DUB', 'SNN', 'NOC', 'KIR']
-
 import random
 
-airport = random.choice(airport_list)
-print(f'The AirportCode Selected is {airport}')
+from airport_dictionary import iata, hints
+code_list = list(iata.keys())
+chosen_airport = random.choice(code_list)
+final_anwser = iata[chosen_airport]
+hint = hints[chosen_airport]
+guess = ''
 
-position = 0
-end_of_game = False
+print(chosen_airport)
 
-#display = ['⬜️', '⬜️', '⬜️',]
-display = []
-guess = input("Type a 3-letter code and press enter:\n").upper()
-for letter in guess:
-    if letter == airport[position]:
-        display += '🟢'
-    elif letter in airport:
-        display += '🟡'
-    else:
-        display += '⬜️'
+letter_correct = 'y'
+letter_in_code = 'o'
+letter_blank = '_'
+
+def processGuess(theAnswer, theGuess):
+    position = 0
+    clue = ""
+    for letter in theGuess:
+        if letter == theAnswer[position]:
+            clue += "G"
+        elif letter in theAnswer:
+            clue += "Y"
+        else:
+            clue += "-"
     position += 1
-guess = guess.split()
-print(f"You guessed:\n {guess}")
-print(display)
+    print(clue)
 
+    return theAnswer == theGuess
 
+num_of_guesses = 1
+guessed_correctly = False
+print(f"Can you guess which is the code of this airport located in {hint}")
 
-# while not end_of_game:
+while num_of_guesses < 6 and not guessed_correctly:
+    user_guess = input("Type a 3-letter code and press enter:\n").upper()
+    if len(user_guess) != 3:
+        print(f"{user_guess} is not a 3-letter code")
+    elif not user_guess.isalpha():
+        print(f"{user_guess} type only letters")
+    else:
+        guess = user_guess
+        print(f"You have guessed {guess}.")
+        num_of_guesses += 1
+    guessed_correctly = processGuess(chosen_airport, guess)
 
-
-# for position in range(0,2):
-#     letter = airport[position]
-#     # print(f"Current position: {position}\n Current letter: {letter}\n Guessed letter: {guess}")
-#     if letter == guess:
-#         display[position] = letter
-
-# print(display)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+if guessed_correctly:
+  print(f"Congratulations! You guessed the correct word in, {num_of_guesses}, times! {chosen_airport} is the IATA code for the {final_anwser}")
+else:
+  print(f"You have used up your guesses...the correct word is, {chosen_airport} {final_anwser}")
