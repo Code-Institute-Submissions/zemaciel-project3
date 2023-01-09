@@ -9,8 +9,8 @@ guess = ''
 
 print(chosen_airport)
 
-letter_correct = 'y'
-letter_in_code = 'o'
+letter_correct = 'G'
+letter_in_code = 'Y'
 letter_blank = '_'
 
 def processGuess(theAnswer, theGuess):
@@ -18,11 +18,11 @@ def processGuess(theAnswer, theGuess):
     clue = ""
     for letter in theGuess:
         if letter == theAnswer[position]:
-            clue += "G"
+            clue += letter_correct
         elif letter in theAnswer:
-            clue += "Y"
+            clue += letter_in_code
         else:
-            clue += "-"
+            clue += letter_blank
     position += 1
     print(clue)
 
@@ -30,7 +30,7 @@ def processGuess(theAnswer, theGuess):
 
 num_of_guesses = 1
 guessed_correctly = False
-print(f"Can you guess which is the code of this airport located in {hint}")
+print(f"Can you guess which is the code of this airport \n located in {hint} \n ")
 
 while num_of_guesses < 6 and not guessed_correctly:
     user_guess = input("Type a 3-letter code and press enter:\n").upper()
@@ -40,11 +40,11 @@ while num_of_guesses < 6 and not guessed_correctly:
         print(f"{user_guess} type only letters")
     else:
         guess = user_guess
-        print(f"You have guessed {guess}.")
+        print(f"You have guessed:\n{guess}.")
         num_of_guesses += 1
     guessed_correctly = processGuess(chosen_airport, guess)
 
 if guessed_correctly:
-  print(f"Congratulations! You guessed the correct word in, {num_of_guesses}, times! {chosen_airport} is the IATA code for the {final_anwser}")
+    print(f"Congratulations! You guessed the correct airport code in {num_of_guesses -1}, times! \n {chosen_airport} is the IATA code for the {final_anwser}")
 else:
-  print(f"You have used up your guesses...the correct word is, {chosen_airport} {final_anwser}")
+    print(f"Sorry, you may have missed your flight! \n The code is, {chosen_airport}, for the {final_anwser}")
