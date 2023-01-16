@@ -142,7 +142,7 @@ def menu():
     ( R ) - Rules
     ( Q ) - Quit
     ''')
-    menu_choice = input("Type on number from the menu:\n").upper()
+    menu_choice = input("Choose a letter from the menu:\n").upper()
     if len(menu_choice) != 1:
         print("Invalid option")
         menu()
