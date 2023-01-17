@@ -1,6 +1,6 @@
 import random
 import os
-from arts_and_rules import logo, intro, rules, game_over
+from arts_and_rules import logo, intro, rules, game_over, bye_bye
 from airport_dictionary import iata, hints
 
 """
@@ -21,9 +21,9 @@ def check_guess(airport_code, players_guess):
     Check if letters in input and IATA code mattch and update clue. 
     """
     global clue
-    letter_correct = '🟢'
-    letter_in_code = '🟡'
-    letter_blank = '⬜️'
+    letter_correct = "🟢"
+    letter_in_code = "🟡"
+    letter_blank = "⬜️"
     position = 0
     clue = ""
     for letter in players_guess:
@@ -39,9 +39,9 @@ def check_guess(airport_code, players_guess):
 
 
 def select_random_airport():
-    '''
+    """
     Get aiport details
-    '''
+    """
     global hint
     global final_anwser
     global chosen_airport
@@ -64,10 +64,10 @@ def get_user_input():
     global num_of_guesses
     user_guess = input("Type a 3-letter code and press enter:\n").upper()
     if len(user_guess) != 3:
-        print(f"⚠️ {user_guess} is not a 3-letter code")
+        print(f"{user_guess} is not a 3-letter code")
         get_user_input()
     if not user_guess.isalpha():
-        print(f"⚠️ {user_guess} type only letters")
+        print(f"{user_guess} type only letters")
         get_user_input()
     else:
         guess = user_guess
@@ -77,6 +77,9 @@ def get_user_input():
 
 
 def play_game():
+    """
+    Load a new game
+    """
     global clue
     get_user_input()
     check_guess(chosen_airport, guess)
@@ -88,14 +91,17 @@ def play_game():
 
 
 def check_end_game():
+    """
+    Check if the game is over and provide feedback to user. 
+    """
     guessed_correctly = check_guess(chosen_airport, guess)
-    while num_of_guesses < 3 and not guessed_correctly:
+    while num_of_guesses < 6 and not guessed_correctly:
         play_game()
-    if num_of_guesses == 3:
+    if num_of_guesses == 6:
+        print(game_over)
         print(f'''Sorry, you may have missed your flight!
 The IATA code is {chosen_airport}, for the
 {final_anwser}''')
-        print(game_over)
         menu()
     if guessed_correctly and num_of_guesses < 2:
         print(f'''
@@ -125,21 +131,21 @@ Can you guess the code of this airport
 located in {hint} \n ''')
     play_game()
 
-def screen_clear():
-   # for mac and linux(here, os.name is 'posix')
-   if os.name == 'posix':
-      _ = os.system('clear')
-   else:
-      # for windows platfrom
-      _ = os.system('cls')
+# def screen_clear():
+#    # for mac and linux(here, os.name is 'posix')
+#    if os.name == 'posix':
+#       _ = os.system('clear')
+#    else:
+#       # for windows platfrom
+#       _ = os.system('cls')
 
 
 def menu():
     menu_choice = 0
     print('''
     Game Menu:
-    ( N ) - New Game
     ( R ) - Rules
+    ( N ) - New Game
     ( Q ) - Quit
     ''')
     menu_choice = input("Choose a letter from the menu:\n").upper()
@@ -151,12 +157,11 @@ def menu():
         menu()
     if menu_choice == "N":
         start_game()
-        screen_clear()
     if menu_choice == "R":
         print(rules)
         menu()
     if menu_choice == "Q":
-        print("bye-bye")
+        print(bye_bye)
         quit()
 
 

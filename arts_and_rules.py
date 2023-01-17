@@ -21,6 +21,9 @@ Others only make sense if you are an airport geek!
 
 This game will challenge you to guess the code 
 for a busy airport from North America or Europe.
+
+If this is your firts time playing, make sure to
+read the Rules. 
 '''
 
 game_over = '''
