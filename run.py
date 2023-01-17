@@ -21,9 +21,9 @@ def check_guess(airport_code, players_guess):
     Check if letters in input and IATA code mattch and update clue. 
     """
     global clue
-    letter_correct = "🟢"
-    letter_in_code = "🟡"
-    letter_blank = "⬜️"
+    letter_correct = " 🟢 "
+    letter_in_code = " 🟡 "
+    letter_blank = " ⬜️ "
     position = 0
     clue = ""
     for letter in players_guess:
@@ -64,10 +64,10 @@ def get_user_input():
     global num_of_guesses
     user_guess = input("Type a 3-letter code and press enter:\n").upper()
     if len(user_guess) != 3:
-        print(f"{user_guess} is not a 3-letter code")
+        print(f"⚠️ {user_guess} is not a 3-letter code")
         get_user_input()
     if not user_guess.isalpha():
-        print(f"{user_guess} type only letters")
+        print(f"⚠️ {user_guess} is invalid, type only letters")
         get_user_input()
     else:
         guess = user_guess
@@ -83,8 +83,7 @@ def play_game():
     global clue
     get_user_input()
     check_guess(chosen_airport, guess)
-    print(f'''You guessed 
-{guess}''')
+    print(f"You guessed /n {guess}")
     print(clue)
     print(f"This is your guess number {num_of_guesses}")
     check_end_game()
@@ -126,9 +125,9 @@ def start_game():
     select_random_airport()
     num_of_guesses = 0
     print(f'''
-✈️ Ready to take off? ✈️
-Can you guess the code of this airport
-located in {hint} \n ''')
+    ✈️ Ready to take off? ✈️
+    Can you guess the code of this airport
+    located in {hint} \n ''')
     play_game()
 
 # def screen_clear():
@@ -150,10 +149,10 @@ def menu():
     ''')
     menu_choice = input("Choose a letter from the menu:\n").upper()
     if len(menu_choice) != 1:
-        print("Invalid option")
+        print("⚠️ Invalid option")
         menu()
     if not menu_choice.isalpha():
-        print("Invalid option")
+        print("⚠️ Invalid option")
         menu()
     if menu_choice == "N":
         start_game()
