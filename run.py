@@ -83,23 +83,28 @@ def play_game():
     global clue
     get_user_input()
     check_guess(chosen_airport, guess)
-    print(f"You guessed /n {guess}")
+    print(f'''
+You guessed:
+  {guess}''')
     print(clue)
-    print(f"This is your guess number {num_of_guesses}")
+    print("")
+    #print(f"This is your guess number {num_of_guesses}")
     check_end_game()
 
 
 def check_end_game():
     """
-    Check if the game is over and provide feedback to user. 
+    Check if the game is over and provide feedback to user
     """
     guessed_correctly = check_guess(chosen_airport, guess)
     while num_of_guesses < 6 and not guessed_correctly:
         play_game()
     if num_of_guesses == 6:
         print(game_over)
-        print(f'''Sorry, you may have missed your flight!
-The IATA code is {chosen_airport}, for the
+        print(f'''
+Sorry, you may have missed your flight!
+The IATA code is
+{chosen_airport}, for the
 {final_anwser}''')
         menu()
     if guessed_correctly and num_of_guesses < 2:
@@ -107,6 +112,7 @@ The IATA code is {chosen_airport}, for the
 Congratulations!
 You are a true airport geek and got the
 correct code on your first try!
+
 {chosen_airport} is the IATA code for the
 {final_anwser}''')
         menu()
@@ -115,6 +121,7 @@ correct code on your first try!
 Well done!
 You guessed the correct airport code in
 {num_of_guesses} tries!
+
 {chosen_airport} is the IATA code for the
 {final_anwser}''')
         menu()
@@ -130,13 +137,11 @@ def start_game():
     located in {hint} \n ''')
     play_game()
 
-# def screen_clear():
-#    # for mac and linux(here, os.name is 'posix')
-#    if os.name == 'posix':
-#       _ = os.system('clear')
-#    else:
-#       # for windows platfrom
-#       _ = os.system('cls')
+def clear():
+    """
+    Clears the console for the user.
+    """
+    os.system('cls' if os.name == 'nt' else 'echo -e \\\\033c')
 
 
 def menu():
@@ -155,8 +160,10 @@ def menu():
         print("⚠️ Invalid option")
         menu()
     if menu_choice == "N":
+        clear()
         start_game()
     if menu_choice == "R":
+        clear()
         print(rules)
         menu()
     if menu_choice == "Q":
