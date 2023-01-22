@@ -1,6 +1,6 @@
 import random
 import os
-from arts_and_rules import logo, intro, rules, game_over, bye_bye
+from arts_and_rules import logo, intro, rules, game_over, bye_bye, credits
 from airport_dictionary import iata, hints
 
 """
@@ -18,7 +18,7 @@ chosen_airport = ""
 
 def check_guess(airport_code, players_guess):
     """
-    Check if letters in input and IATA code mattch and update clue. 
+    Check if letters in input and IATA code mattch and update clue.
     """
     global clue
     letter_correct = " 🟢 "
@@ -88,7 +88,6 @@ You guessed:
   {guess}''')
     print(clue)
     print("")
-    #print(f"This is your guess number {num_of_guesses}")
     check_end_game()
 
 
@@ -99,7 +98,7 @@ def check_end_game():
     guessed_correctly = check_guess(chosen_airport, guess)
     while num_of_guesses < 6 and not guessed_correctly:
         play_game()
-    if num_of_guesses == 6:
+    if num_of_guesses == 6 and not guessed_correctly:
         print(game_over)
         print(f'''
 Sorry, you may have missed your flight!
@@ -128,6 +127,9 @@ You guessed the correct airport code in
 
 
 def start_game():
+    """
+    Select a random airport, and generate hint for start of the game
+    """
     global num_of_guesses
     select_random_airport()
     num_of_guesses = 0
@@ -137,6 +139,7 @@ def start_game():
     located in {hint} \n ''')
     play_game()
 
+
 def clear():
     """
     Clears the console for the user.
@@ -145,11 +148,15 @@ def clear():
 
 
 def menu():
+    """
+    Menu to be displayed at the begining and end of a game
+    """
     menu_choice = 0
     print('''
     Game Menu:
     ( R ) - Rules
     ( N ) - New Game
+    ( C ) - Credits
     ( Q ) - Quit
     ''')
     menu_choice = input("Choose a letter from the menu:\n").upper()
@@ -166,12 +173,20 @@ def menu():
         clear()
         print(rules)
         menu()
+    if menu_choice == "C":
+        clear()
+        print(credits)
+        menu()
     if menu_choice == "Q":
         print(bye_bye)
         quit()
 
 
 def intial_screen():
+    """
+    Loads content to be displayed when
+    the app runs for the first time
+    """
     print(logo)
     print(intro)
     menu()
