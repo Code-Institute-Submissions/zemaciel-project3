@@ -28,12 +28,14 @@ Live site at [https://airport-codes-game.herokuapp.com/](https://airport-codes-g
 
 # Description 
 The "Airport Codes Game" is inspired by the well-known web-based game [Wordle](https://en.wikipedia.org/wiki/Wordle), where the players have six tries to guess a five-letter word, with feedback given for each guess in the form of coloured tiles indicating when letters match or occupy the correct position. 
-If you still haven't played Wordle, you can play it free at [The New York Times website](https://www.nytimes.com/games/wordle/index.html).
-As a Wordle fan and an aviation geek, I decided to program the "Guess The Aiport Game", where the players have six attempts to guess the three-letter [IATA code](https://en.wikipedia.org/wiki/IATA_airport_code) for an airport.  
-Searching online, I found a couple of tutorials showing that it was possible to code a Wordle game in Python; some were more advanced and included Python libraries. So I started this project following a tutorial on the YouTube channel ["CompSci with Dr. Victor"](https://www.youtube.com/@CompSciwithDrVictor), under the title ["Text-Based Wordle in Python under 15 Minutes!"](https://www.youtube.com/watch?v=J6h7D2iQmBU) No need to say that it took me way over 15 minutes. 
+
+If you still haven't played Wordle, you can play it for free at [The New York Times website](https://www.nytimes.com/games/wordle/index.html).
+
+As a Wordle fan and an aviation geek, I decided to try programing the "Airport Codes Game" similar to Wordle, where the players have six attempts to guess the three-letter [IATA code](https://en.wikipedia.org/wiki/IATA_airport_code) for an airport.
+
 
 # Logic
-![](assets/FlowChart.png)
+![](assets/flowchart.png)
 
 # Features
 ## Introduction, menu and rules
@@ -96,8 +98,10 @@ Every time the user inputs a value, the game checks if it is a valid three-lette
 
 # Testing
 ## PEP8 Validator Testing
-The game has been tested by running it through the PeP8.
-The final version of the run.py file have no issues. 
+The game has been tested by running it through the [PeP8](https://pep8ci.herokuapp.com/).
+
+The final version of the run.py and the aiport_dictionary.py have no issues. 
+
 The file containing the ASCII art presents errors due to trailing whitespaces or "invalid escape sequence '\_' ".
 
 
@@ -137,12 +141,14 @@ The steps to deploy are:
 The delpoyed app can be found here: [https://airport-codes-game.herokuapp.com/](https://airport-codes-game.herokuapp.com/)
 
 # Credits
-* Video tutorial: [Text-Based Wordle in Python under 15 Minutes!](https://www.youtube.com/watch?v=J6h7D2iQmBU). Code from the video is available [here](https://replit.com/@DrVictor/TextBasedWordle).
+I started this project following a tutorial on the YouTube channel ["CompSci with Dr. Victor"](https://www.youtube.com/@CompSciwithDrVictor), under the title ["Text-Based Wordle in Python under 15 Minutes!"](https://www.youtube.com/watch?v=J6h7D2iQmBU) The code from the video is available [here](https://replit.com/@DrVictor/TextBasedWordle).
 * The list of airports for this game is from the web page ["Top 100 busiest airports in the world"](https://gettocenter.com/airports/top-100-airports-in-world). <br>I've used only airports from North America and Europe.
-* A function to clear the screen was extracted from the project of a Code Institute collegue, [
+* The function to clear the screen was extracted from the project of a Code Institute collegue, [
 James Fitzpatrick's Hangman](https://github.com/James-Fitz/hangman_python)
-* Code Institute [Python Tempalte](https://github.com/Code-Institute-Org/python-essentials-template)
+* Code Institute [Python Template](https://github.com/Code-Institute-Org/python-essentials-template)
 * ASCII art created with [Patorjk.com](https://patorjk.com/software/taag)
+* Adobe Illustrator for the flow chart.
+
 
 
 I would like to thank my mentor Martina Terlevic for her help in this project. 
