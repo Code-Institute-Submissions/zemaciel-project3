@@ -12,7 +12,7 @@ Live site at [https://airport-codes-game.herokuapp.com/](https://airport-codes-g
 - [Logic](#logic)
 - [Features](#features)
   * [Introduction, menu and rules](#introduction-menu-and-rules)
-  * [Hitns and Airports](#hitns-and-airports)
+  * [Hints and Airports](#hints-and-airports)
   * [Clues](#clues)
   * [End-of-game feedback](#end-of-game-feedback)
   * [Input validation](#input-validation)
@@ -47,7 +47,7 @@ The menu is also displayed at the end of the games.
 
 The introduction, ASCII art, rules and credits are stored in a separate python file.
 
-## Hitns and Airports
+## Hints and Airports
 Some IATA codes are the initials of the name of the airport they represent (e.g. JFK for John Fitzgerald Kennedy, New York) or abbreviations of the city where they are located (e.g. DUB for Dublin Airport). However, in many cases, there is no clear association between the airport and its code (e.g. YYZ for Toronto Pearson International Airport). 
 
 Also,  asking the players to guess any three-letter code could lead to frustration. They could spend all their six attempts before getting any clue.   
@@ -59,19 +59,19 @@ Instead, a hint about the airport's location is displayed at the start of every 
 The list of airports and hints are in two different dictionaries in a separate python file. 
 
 ## Clues
-The game displays a line below the player's guess with [Emojis](https://en.wikipedia.org/wiki/Emoji) to provide feedback if the letters in the player's input match the ones in the airport code: 
+The game displays a line below the player's guess with [Emojis](https://en.wikipedia.org/wiki/Emoji) symbols to provide feedback if the letters in the player's input match the ones in the airport code: 
 
-- 🟢 The green circle emoji indicates that the letter is in the code and the correct position.
-- 🟡 The yellow circle emoji means the letter is in the code but not in the right place.
+- 🟢 The green circle indicates that the letter is in the code and the correct position.
+- 🟡 The yellow circle means the letter is in the code but not in the right place.
 - ⬜️ The grey square indicates that the letter is not part of the code.
 
 All the player's attempts remain visible on the screen until the game is reset. 
 
 ## End-of-game feedback
-The game ends when the player uses all their six tries or when they correctly guess the three letters of the airport code in the correct positions. 
+The game ends when the player uses all their six tries or when they correctly guess the three letters of the airport code in their correct positions. 
 There are three different feedback given according to the outcome: 
 
-1 - The players guess on the first try:<br>
+1 - The players guess correctly on the first try:<br>
 
 ![](assets/end_game_1.png)
 
@@ -86,19 +86,19 @@ There are three different feedback given according to the outcome:
 In all cases, the feedback presents the correct IATA code with the airport name and location, followed by the game menu. 
 
 ## Input validation
-Every time the user inputs a value, the game checks if it is a valid three-letter code, and converts the letters to uppercase to fit if the IATA code standards. 
- In case of an invalid input the player will see one of the following messages: <br>
+Every time the user inputs a value, the game checks if it is a valid three-letter code, and converts the letters to uppercase to match the IATA code standards. 
+ In case of an invalid input the player will get one of the following messages: <br>
  * The player's guess has lenth different than three letters:<br>
  ![](assets/invalid_lengh.png)
 
- * The playe's guess contains numbers or symblos: <br>
+ * The player's guess contains numbers or symblos: <br>
  ![](assets/invalid_not_alpha.png) 
 
 
 
 # Testing
 ## PEP8 Validator Testing
-The game has been tested by running it through the [PeP8](https://pep8ci.herokuapp.com/).
+The game has been tested by running it through the [CI Python Linter](https://pep8ci.herokuapp.com/).
 
 The final version of the run.py and the aiport_dictionary.py have no issues. 
 
@@ -109,9 +109,9 @@ The file containing the ASCII art presents errors due to trailing whitespaces or
 The game has been tested on Google Chrome and Firefox for desktop and mobile with no significant issues. 
 
 ## Unfixed bugs
-There is a problem when the game loads for the first time the introduction screen, with the ASCII, is not displayed entirely.  
+There is a problem when the game loads for the first time: the introduction screen, with the ASCII, is not displayed entirely.  
 
-Also, when a player enters a guess with repeated letters, if the letter is just in the airport code, the feedback will be green for the letter in the correct place and yellow for the repeated letter because it is in the guess code. 
+Also, when a player enters a guess with repeated letters, if the letter is just in the airport code, the feedback will be green for the letter in the correct place and yellow for the repeated, letter because it is in the guess code. 
 
 For example: If the IATA code is "DUB", and the user enters "UUU", the clue will be "Yellow-Green-Yellow". It could be better to indicate that if the letter had already been guessed, the repeated occurrences should be marked as not in the airport code.<br>
 ![](assets/bug.png)
@@ -134,21 +134,18 @@ I could not fix these issues, but they only affected a little game experience.
 ## Deployment 
 This site was deployed with the Code Institute template for Heroku. 
 The steps to deploy are:
-* At Heroku dashboard,  click "new" and "create new app".* 
+* At Heroku dashboard,  click "new" and "create new app". 
 * Than, set the build packs to Python and jsnode in this order. 
 * In the deploy tab connect the github repository and click on enable automatic deploy.
 
-The delpoyed app can be found here: [https://airport-codes-game.herokuapp.com/](https://airport-codes-game.herokuapp.com/)
+The deployed app can be found here: [https://airport-codes-game.herokuapp.com/](https://airport-codes-game.herokuapp.com/)
 
 # Credits
-I started this project following a tutorial on the YouTube channel ["CompSci with Dr. Victor"](https://www.youtube.com/@CompSciwithDrVictor), under the title ["Text-Based Wordle in Python under 15 Minutes!"](https://www.youtube.com/watch?v=J6h7D2iQmBU) The code from the video is available [here](https://replit.com/@DrVictor/TextBasedWordle).
-* The list of airports for this game is from the web page ["Top 100 busiest airports in the world"](https://gettocenter.com/airports/top-100-airports-in-world). <br>I've used only airports from North America and Europe.
-* The function to clear the screen was extracted from the project of a Code Institute collegue, [
-James Fitzpatrick's Hangman](https://github.com/James-Fitz/hangman_python)
+I started this project following a tutorial on the YouTube channel ["CompSci with Dr. Victor"](https://www.youtube.com/@CompSciwithDrVictor), under the title ["Text-Based Wordle in Python under 15 Minutes!"](https://www.youtube.com/watch?v=J6h7D2iQmBU). The code from the video is available [here](https://replit.com/@DrVictor/TextBasedWordle).
+* The list of airports for this game is from the web page ["Top 100 busiest airports in the world"](https://gettocenter.com/airports/top-100-airports-in-world). <br>For this game there are only airports from North America and Europe.
+* The function to clear the screen was extracted from the project of a Code Institute collegue, [James Fitzpatrick's Hangman](https://github.com/James-Fitz/hangman_python)
 * Code Institute [Python Template](https://github.com/Code-Institute-Org/python-essentials-template)
 * ASCII art created with [Patorjk.com](https://patorjk.com/software/taag)
 * Adobe Illustrator for the flow chart.
 
-
-
-I would like to thank my mentor Martina Terlevic for her help in this project. 
+I would like to thank my mentor Martina Terlevic for her help in this project and the Code Institute Student Care team. 
