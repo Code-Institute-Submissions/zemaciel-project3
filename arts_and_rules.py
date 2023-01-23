@@ -37,7 +37,6 @@ bye_bye = '''
 '''
 
 
-
 rules = '''
 Rules:
 Guess the IATA code in six goes or less.
@@ -55,9 +54,7 @@ Letters can be used more than once.
 credits = '''
 This game was created by José Maciel
 for the Code Institute Portfolio Project 3.
-
 Github: github.com/zemaciel.
 LinkedIn: linkedin.com/in/josemaciel/
-
 January 2023
 '''

@@ -180,6 +180,10 @@ def menu():
     if menu_choice == "Q":
         print(bye_bye)
         quit()
+    else:
+        print("⚠️ Invalid option")
+        menu()
+
 
 
 def intial_screen():

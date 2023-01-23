@@ -1,5 +1,3 @@
-#list of selected iata_codes
-
 iata = {
     "LHR": "Heathrow Airport • London, United Kingdom",
     "CDG": "Charles de Gaulle International Airport • Paris, France",
@@ -56,7 +54,7 @@ iata = {
     "ORD": "O'Hare International Airport • Chicago, USA",
     "DFW": "Dallas-Fort Worth International Airport • Dallas, USA",
     "DEN": "Denver International Airport • Denver, USA",
-    "JFK": "John F. Kennedy International Airport • New York, USA",
+    "JFK": "John F. Kennedy International • New York, USA",
     "SFO": "San Francisco International • San Francisco, USA",
     "LAS": "McCarran International Airport • Las Vegas, USA",
     "YYZ": "Toronto Pearson International • Toronto, Canada",
@@ -94,7 +92,7 @@ iata = {
     "OAK": "Metropolitan Oakland International Airport • Oakland, USA",
     "SJC": "Norman Y. Mineta San Jose International Airport • San Jose, USA",
     "MSY": "Louis Armstrong International • New Orleans, USA",
-    "RDU": "Raleigh•Durham International Airport • Raleigh, USA",
+    "RDU": "Raleigh-Durham International • Raleigh, USA",
     "MCI": "Kansas City International Airport • Kansas City, USA",
     "SMF": "Sacramento International Airport • Sacramento, USA",
     "SNA": "John Wayne Airport-Orange County Airport • Santa Ana, USA",
@@ -104,7 +102,7 @@ iata = {
 }
 
 hints = {
-    "LHR": "London, United Kingdom",
+    "LHR": "London, UK (bonus hint: it's the main international airport)",
     "CDG": "Paris, France",
     "AMS": "Amsterdam, Netherlands",
     "FRA": "Frankfurt, Germany",
@@ -116,7 +114,7 @@ hints = {
     "FCO": "Rome, Italy",
     "SVO": "Moscow, Russia",
     "SAW": "Istanbul, Turkey",
-    "DME": "Moscow, Russia",
+    "DME": "Moscow, Russia (bonus hint: it's called Domodedovo)",
     "DUB": "Dublin, Ireland",
     "ZRH": "Zurich, Switzerland",
     "CPH": "Copenhagen, Denmark",
